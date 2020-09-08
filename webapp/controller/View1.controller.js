@@ -55,12 +55,12 @@ sap.ui.define([
 //				async: false,
 				filters: bFltr,
 				success: function (oData, response) {
-                alert("Success");
+//                alert("Success");
 	
 
 				},
 				error: function (oerror) {
-                alert("error");
+ //               alert("error");
 	
 
 				}
