@@ -1,0 +1,8 @@
+{
+"TableData" : [
+	{"TableName" : "854" ,
+	  "Desc": "SalesOrgTable"},
+		{"TableName" : "354",
+		  "Desc": "MatTable"}
+	]	
+}

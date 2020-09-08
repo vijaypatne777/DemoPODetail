@@ -1,0 +1,4 @@
+<core:FragmentDefinition xmlns="sap.ui.comp.valuehelpdialog" xmlns:core="sap.ui.core">
+	<ValueHelpDialog title="ConditionTypes" ok=".onValueHelpOk" cancel=".onValueHelpCancel" supportMultiselect="true" key="ConditionType" descriptionKey="ConditionApplication
+	 " ></ValueHelpDialog>
+</core:FragmentDefinition>

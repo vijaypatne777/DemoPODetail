@@ -1,0 +1,90 @@
+<mvc:View controllerName="Purchase.PurchaseInfo.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+          xmlns:f="sap.ui.layout.form"
+          xmlns:u="sap.ui.layout"
+          xmlns:c="sap.ui.core">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page">
+					<content>
+						<!--<f:SimpleForm layout="ResponsiveGridLayout" labelSpanM="12" labelSpanL="12" labelSpanXL="12" emptySpanL="10" emptySpanM="10" columnsL="2">-->
+						
+						<!--<f:content>-->
+						<Panel width="auto">
+						<content>	
+						<!--<u:HorizontalLayout>-->
+						<Toolbar>
+						<Label text="Conditon Type" labelFor="mInput" width="6rem">
+					 
+					    </Label>
+					 
+						<MultiInput id="mInput"
+							 valueHelpOnly="true"
+						 valueHelpRequest=".onValueHelpRequest" width="10rem">
+					
+					    </MultiInput>
+				        <ToolbarSpacer/>
+			 		    <Label text="Conditon Table" labelFor="mInput" width="6rem">
+					    </Label>
+					    
+						<ComboBox id="cbox" items="{path: '/TableData' }">  
+					    <c:ListItem key="{TableName}" text="{TableName}" />
+					  	</ComboBox>
+						
+						<Button type="Default" text="Go" press=".onFindPriceScale"></Button> 
+						<!--</u:HorizontalLayout>-->
+						</Toolbar>
+						</content>
+						</Panel>
+						<!--</f:content>	-->
+						<!--</f:SimpleForm>-->
+						<!--items="{ path: '/rdata'}"-->
+						<Table id="ConditionScale"
+						    growing = "true"
+						    growingThreshold="10"
+						    growingScrollToLoad="false"
+						    items="{ path: '/rdata'}">
+                        <!-- items="{ path: '/A_SlsPrcgCndnRecdValidity', -->
+                        <!--        filters: [ { path: 'ConditionType', operator: 'EQ', value1: 'PPR0' } , -->
+                        
+                        <!--        { path: 'ConditionType', operator: 'EQ', value1: 'LCIT' }, -->
+                        <!--        { path: 'Material', operator: 'NE', value1: '' } ], -->
+                        <!--        sorter: { path: 'Material', descending: false } }"-->
+							<headerToolbar>
+								<Toolbar>
+									<Title text="Condition Scale Report"></Title>
+									<ToolbarSpacer></ToolbarSpacer>
+									<SearchField width="50%" search="onFilterMaterial"></SearchField>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column width="12em">
+									<Text text="Material"></Text>
+								</Column>
+								<Column width="12em">
+									<Text text="PriceScale"></Text>
+								</Column> 
+								<!--				<Column width="12em">
+				    <Text text="Condition"></Text>
+					</Column>
+				 	<Column width="12em">
+				    <Text text="Condition Type"></Text>
+					</Column> -->
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{Material}"/>
+									    <Text text="{PricingScale}"/>
+										<!--						<Text text="{ConditionRecord}"/>
+						<Text text="{ConditionType}"/> -->
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

@@ -1,0 +1,132 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "Purchase.PurchaseInfo",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"S4HC": {
+				"uri": "/destinations/S4HC/sap/opu/odata/sap/API_SLSPRICINGCONDITIONRECORD_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+
+			},
+			"PRM": {
+				"uri": "/destinations/S4HC/sap/opu/odata/sap/API_SLSPRICINGCONDITIONTYPE_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			},
+		"BOMD": {
+				"uri": "/destinations/S4HC/sap/opu/odata/sap/API_BILL_OF_MATERIAL_SRV;v=2",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		 
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "Purchase.PurchaseInfo.view.View1",
+			"type": "XML",
+			"async": true,
+			"id": "View1"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "Purchase.PurchaseInfo.i18n.i18n"
+				}
+			},
+			"PINFO": {
+				"dataSource": "S4HC"
+			},
+
+			"CTYPE": {
+				"dataSource": "PRM"
+			},
+			"TBOM": {
+				"dataSource": "BOMD"
+			},
+		  "CTABLE": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/ConditionTables.json"
+			}	
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "Purchase.PurchaseInfo.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "RouteView1",
+				"pattern": "RouteView1",
+				"target": ["TargetView1"]
+			}],
+			"targets": {
+				"TargetView1": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "View1",
+					"viewName": "View1"
+				}
+			}
+		}
+	}
+}
